@@ -183,3 +183,8 @@ const adventureBooks = books
   .filter((book) => book.genres.includes("adventure")) // after getting the filter we map it and return the title for viewing
   .map((book) => book.title);
 adventureBooks;
+
+// reduce method
+
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
