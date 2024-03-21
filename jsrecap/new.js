@@ -159,7 +159,7 @@ console.log(x);
 */
 // creates a new array and returns the result of the arrow function, this case iterates each book and returns the book title
 // preserving the original array
-const titles = books.map((book) => book.title);
+/* const titles = books.map((book) => book.title);
 titles;
 
 // for multiple returls of arrow function use following syntax
@@ -168,9 +168,9 @@ const essentialData = books.map((book) => ({
   title: book.title,
   author: book.author,
   reviews: getTotalReviewsCount(book),
-}));
+})); */
 
-essentialData;
+/* essentialData;
 
 // again, the filter method creates a new array with only the books that meet the condition of pages > 500
 const longBooks = books
@@ -188,3 +188,59 @@ adventureBooks;
 
 const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
 pagesAllBooks;
+
+// array sort method
+const x = [3, 1, 5, 2, 8, 6, 4, 9];
+
+const sorted = x.slice().sort((a, b) => a - b); // put slice before sort because sort works on the original array instead of making a copy and keeping the original, so
+// by calling slice first we actually create a 'working copy' and leave the original alone
+sorted; */
+/* 
+const sortedOtherWay = x.sort((a, b) => b - a);
+sortedOtherWay;
+
+//again we slice the book array to get a 'working copy' before sorting it, maintaining the original one
+const sortedByPage = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPage;
+
+// Working with immutable arrays
+
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+// use the spread operator the 'unpack' the existing array into the new one and add the newBook to it at the end
+const booksAfterAdd = [...books, newBook]; */
+
+/* booksAfterAdd;
+
+//delete book from array
+const bookAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+bookAfterDelete;
+
+// update book from array
+const booksAfterUpdate = bookAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1211 } : book
+);
+
+booksAfterUpdate; */
+///
+//Javascript Promises
+
+/* fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data)); */
+
+console.log(
+  "Even tho its after the promise, it will be done first since JS has to way for API response"
+);
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+getTodos();
